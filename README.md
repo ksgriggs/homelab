@@ -1,7 +1,7 @@
 # Homelab
 
 This will eventually have more in it.  I'm just starting to build a homelab using K3s.
-I was inspired by [Mischa van den Burg](https://github.com/mischavandeburg).
+I was inspired by [Mischa van den Burg](https://github.com/mischavandenburg).
 
 ## Cluster Provisioning
 
