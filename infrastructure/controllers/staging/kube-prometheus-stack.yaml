@@ -41,4 +41,4 @@ spec:
         #       - grafana.scottops.dev
         #     secretName: grafana-ingress
         hosts:
-          - grafana.homelabe.com
+          - grafana.homelab.com
