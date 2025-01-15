@@ -33,6 +33,6 @@ spec:
     grafana:
       ingress:
         enabled: true
-      ingressClassName: traefik
-      hosts:
-        - grafana.homelab.com
+        ingressClassName: traefik
+        hosts:
+          - grafana.homelab.com
