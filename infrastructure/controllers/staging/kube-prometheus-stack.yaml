@@ -34,11 +34,11 @@ spec:
       ingress:
         enabled: true
         ingressClassName: traefik
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-staging"
-        tls:
-          - hosts:
-              - grafana.scottops.dev
-            secretName: grafana-ingress
+        # annotations:
+        #   cert-manager.io/cluster-issuer: "letsencrypt-staging"
+        # tls:
+        #   - hosts:
+        #       - grafana.scottops.dev
+        #     secretName: grafana-ingress
         hosts:
           - grafana.scottops.dev
