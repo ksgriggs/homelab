@@ -3,7 +3,7 @@ name: update-flux
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
@@ -14,25 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Flux CLI
         uses: fluxcd/flux2/action@main
       - name: Check for updates
         id: update
         run: |
           flux install \
-            --export \
-            --components-extra=image-reflector-controller,image-automation-controller \
-            > ./clusters/staging/flux-system/gotk-components.yaml
+            --export > ./clusters/staging/flux-system/gotk-components.yaml
 
           VERSION="$(flux -v)"
-          echo "flux_version=$VERSION" >> $GITHUB_OUTPUT
+          echo "flux_version=$VERSION" >> $GITHUB_OUTPUT          
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: update-flux
-          commit-message: Update to ${{ steps.update.outputs.flux_version }}
-          title: Update to ${{ steps.update.outputs.flux_version }}
-          body: |
-            ${{ steps.update.outputs.flux_version }}
+            branch: update-flux
+            commit-message: Update to ${{ steps.update.outputs.flux_version }}
+            title: Update to ${{ steps.update.outputs.flux_version }}
+            body: |
+              ${{ steps.update.outputs.flux_version }}
