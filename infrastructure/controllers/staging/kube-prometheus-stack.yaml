@@ -41,4 +41,4 @@ spec:
         #       - grafana.scottops.dev
         #     secretName: grafana-ingress
         hosts:
-          - grafana.homelab.com
+          - grafana.scottgriggs.net
