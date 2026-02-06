@@ -11,7 +11,7 @@ spec:
   chart:
     spec:
       chart: prometheus
-      version: 3.9.x
+      version: 28.8.x
       interval: 24h # new chart check
       sourceRef:
         kind: HelmRepository
