@@ -30,3 +30,12 @@ spec:
         name: kube-prometheus-stack
         namespace: monitoring
       interval: 12h
+  values:
+    grafana:
+      ingress:
+        enabled: true
+        service:
+          type: ClusterIP
+        hosts:
+          - grafana.local  # Change this to your desired domain
+        path: /
